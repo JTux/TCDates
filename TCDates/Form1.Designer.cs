@@ -30,6 +30,7 @@ namespace TCDates
         private void InitializeComponent()
         {
             this.bigRedButton = new System.Windows.Forms.Button();
+            this.exportButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bigRedButton
@@ -45,11 +46,22 @@ namespace TCDates
             this.bigRedButton.UseVisualStyleBackColor = false;
             this.bigRedButton.Click += new System.EventHandler(this.bigRedButton_Click);
             // 
+            // exportButton
+            // 
+            this.exportButton.Location = new System.Drawing.Point(328, 297);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(145, 51);
+            this.exportButton.TabIndex = 1;
+            this.exportButton.Text = "Export Dates";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.bigRedButton);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -60,6 +72,7 @@ namespace TCDates
         #endregion
 
         private System.Windows.Forms.Button bigRedButton;
+        private System.Windows.Forms.Button exportButton;
     }
 }
 
