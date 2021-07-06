@@ -13,17 +13,19 @@ using System.Xml.Linq;
 
 namespace TCDates
 {
-    public partial class Form1 : Form
+    public partial class DateTimeRecorder : System.Windows.Forms.Form
     {
-        public Form1()
+        public DateTimeRecorder()
         {
             VerifyXmlExists();
             InitializeComponent();
+            SetDateCount();
         }
 
         private void bigRedButton_Click(object sender, EventArgs e)
         {
             InsertDate();
+            SetDateCount();
         }
 
         private void exportButton_Click(object sender, EventArgs e)
@@ -58,8 +60,11 @@ namespace TCDates
         private IEnumerable<DateTime> GetDatesFromXml()
         {
             VerifyXmlExists();
-            var nodes = XElement.Load("data.xml").Elements("Date");
-            return nodes.Select(e => DateTime.Parse(e.Value));
+            var doc = XElement.Load("data.xml");
+
+            return doc.Elements().Any(e => e.Name == "Date")
+                ? doc.Elements("Date").Select(e => DateTime.Parse(e.Value))
+                : Array.Empty<DateTime>();
         }
 
         /// <summary>
@@ -86,6 +91,11 @@ namespace TCDates
                 textWriter.WriteEndElement();
                 textWriter.Close();
             }
+        }
+
+        private void SetDateCount()
+        {
+            dateCount.Text = GetDatesFromXml().Count().ToString();
         }
     }
 }
