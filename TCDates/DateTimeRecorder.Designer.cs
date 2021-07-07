@@ -33,7 +33,10 @@ namespace TCDates
             this.bigRedButton = new System.Windows.Forms.Button();
             this.exportButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.dateCount = new System.Windows.Forms.TextBox();
+            this.dateDisplay = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dateCountLabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // bigRedButton
@@ -51,7 +54,7 @@ namespace TCDates
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(335, 300);
+            this.exportButton.Location = new System.Drawing.Point(334, 270);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(146, 51);
             this.exportButton.TabIndex = 1;
@@ -61,40 +64,68 @@ namespace TCDates
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(335, 253);
+            this.label1.Location = new System.Drawing.Point(3, 7);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(125, 15);
             this.label1.TabIndex = 3;
             this.label1.Text = "Dates currently stored:";
             // 
-            // dateCount
+            // dateDisplay
             // 
-            this.dateCount.Enabled = false;
-            this.dateCount.Location = new System.Drawing.Point(335, 271);
-            this.dateCount.Name = "dateCount";
-            this.dateCount.ReadOnly = true;
-            this.dateCount.Size = new System.Drawing.Size(146, 23);
-            this.dateCount.TabIndex = 4;
-            this.dateCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.dateDisplay.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.dateDisplay.AutoSize = true;
+            this.dateDisplay.Location = new System.Drawing.Point(306, 7);
+            this.dateDisplay.Name = "dateDisplay";
+            this.dateDisplay.Size = new System.Drawing.Size(107, 15);
+            this.dateDisplay.TabIndex = 5;
+            this.dateDisplay.Text = "No dates recorded.";
+            this.dateDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // Form
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.98077F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.01923F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 207F));
+            this.tableLayoutPanel1.Controls.Add(this.dateDisplay, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dateCountLabel, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(200, 235);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(416, 29);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
+            // dateCountLabel
+            // 
+            this.dateCountLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.dateCountLabel.AutoSize = true;
+            this.dateCountLabel.Location = new System.Drawing.Point(134, 7);
+            this.dateCountLabel.Name = "dateCountLabel";
+            this.dateCountLabel.Size = new System.Drawing.Size(13, 15);
+            this.dateCountLabel.TabIndex = 6;
+            this.dateCountLabel.Text = "0";
+            // 
+            // DateTimeRecorder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateCount);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.bigRedButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(816, 489);
             this.MinimumSize = new System.Drawing.Size(816, 489);
-            this.Name = "Form";
+            this.Name = "DateTimeRecorder";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Date Time Recorder";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -103,7 +134,9 @@ namespace TCDates
         private System.Windows.Forms.Button bigRedButton;
         private System.Windows.Forms.Button exportButton;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox dateCount;
+        private System.Windows.Forms.Label dateDisplay;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label dateCountLabel;
     }
 }
 

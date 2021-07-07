@@ -19,13 +19,13 @@ namespace TCDates
         {
             VerifyXmlExists();
             InitializeComponent();
-            SetDateCount();
+            SetDateInfo();
         }
 
         private void bigRedButton_Click(object sender, EventArgs e)
         {
             InsertDate();
-            SetDateCount();
+            SetDateInfo();
         }
 
         private void exportButton_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace TCDates
                     sw.WriteLine("\"Date\",\"Time\"");
                     foreach (var date in GetDatesFromXml())
                     {
-                        sw.WriteLine("\"{0}\",\"{1}\"", date.ToShortDateString(), date.ToShortTimeString());
+                        sw.WriteLine($"\"{date.ToShortDateString()}\",\"{date.ToLongTimeString()}\"");
                     }
                     sw.Close();
                 }
@@ -93,9 +93,15 @@ namespace TCDates
             }
         }
 
-        private void SetDateCount()
+        private void SetDateInfo()
         {
-            dateCount.Text = GetDatesFromXml().Count().ToString();
+            var dates = GetDatesFromXml();
+
+            dateDisplay.Text = dates.Any() 
+                ? $"Last update: {dates.Max()}"
+                : "No dates recorded.";
+
+            dateCountLabel.Text = dates.Count().ToString();
         }
     }
 }
